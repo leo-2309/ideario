@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa - Ideário</title>
+    <link rel="shortcut icon" href="./media/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        #no-results {
+            color: #ffffff;
+            font-size: 2em;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .noticia-container {
+    background-color: #ffffff;
+    margin-left: 6px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 47%;
+} 
+
+    </style>
+</head>
+<body>
+    <header>
+    <h1 id="titulo"> <mark id="titulo">Ideia</mark>rio   </h1>
+    <nav id="search">
+    <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M240-200h133.85v-237.69h212.3V-200H720v-360L480-740.77 240-560v360Zm-60 60v-450l300-225.77L780-590v450H526.15v-237.69h-92.3V-140H180Zm300-330.38Z"/></svg></a>
+    <a href="mailto:ideario@gmail.com" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg></a>  ㅤ ㅤ ㅤ ㅤ ㅤ 
+
+    <input type="text" id="search-input" placeholder="Pesquisar por título, tag ou categoria..." /> 
+
+
+         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg> 
+
+
+
+    </nav>
+    </header>
+</head>
+
+<br>
+
+<main id="resultados">
+        <h1 id="titulo-2">Resultados da Pesquisa</h1>
+        <div id="noticias"> 
+           <!--   As notícias filtradas aparecerão aqui, mas inicialmente está vazio -->
+        </div>
+        <div id="no-results" style="display:none;"><p>Nenhum resultado encontrado para a sua pesquisa :( </p> </div>
+
+</main> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    const noticias = [
+
+    {
+            title: 'Escravidão',
+            content: 'Escravidão: Seus legados que nos influenciam até hoje.',
+            link: './redações/legados-da-escravidão.html',
+            category: 'Redação',
+            date: '18/11/2024',
+            tag: 'ESCRAVIDÃO'
+        },
+
+        {
+            title: 'Escravidão',
+            content: '"Obesidade Mental" para Vitória Pierri (PARTE 1)',
+            link: './cartas/obesidade-mental.html',
+            category: 'Carta do Leitor',
+            date: '19/08/2024',
+            tag: 'OBESIDADE MENTAL'
+        },
+
+        {
+            title: 'Escravidão',
+            content: '"Obesidade Mental" para Vitória Pierri (PARTE 2)',
+            link: './cartas/obesidade-mental-2.html',
+            category: 'Carta do Leitor',
+            date: '19/08/2024',
+            tag: 'OBESIDADE MENTAL'
+        },
+
+        {
+        title: 'Boa Convivência Escolar',
+        content: '"Sugestão de boa convivência escolar" para diretor.',
+        link: './cartas/sugestão-de-boa-convivência-escolar.html',
+        category: 'Carta do Leitor',
+        date: '19/08/2024',
+        tag: 'BOA CONVIVÊNCIA ESCOLAR'
+    },
+    {
+        title: 'CMSP',
+        content: '"Caos de Mídias Sem Progresso"',
+        link: './artigos de opinião/CMSP.html',
+        category: 'Artigo de opinião',
+        date: '19/11/2024',
+        tag: 'CMSP'
+    },
+    {
+        title: 'Melancólico',
+        content: 'Conto para: "Guto"',
+        link: './contos/guto.html',
+        category: 'Poema',
+        date: '20/11/2024',
+        tag: 'MELANCÓLICO'
+    },
+    {
+        title: 'As Aventuras de Pinnochio',
+        content: 'Resumo de: "As aventuras do Pinnochio"',
+        link: './resumo/as-aventuras-do-pinnochio.html',
+        category: 'Resumo',
+        date: '20/11/2024',
+        tag: 'AS AVENTURAS DE PINNOCHIO'
+    },
+
+        {
+            title: 'O Jardim Secreto',
+            content: 'Resumo: "O jardim secreto"',
+            link: './resumo/o-jardim-secreto.html',
+            category: 'Resumo',
+            date: '19/08/2024',
+            tag: 'O JARDIM SECRETO',
+        },
+
+        {
+        title: 'Racismo',
+        content: 'Bom dia, Joy: Racismo em escolas.',
+        link: './podcast/bom-dia-joy-racismo-em-escolas.html',
+        category: 'Podcast',
+        date: '23/03/2024',
+        tag: 'RACISMO'
+    },
+
+    {
+        title: 'O hospital',
+        content: 'O Hospital',
+        link: './terror/o-hospital.html',
+        category: 'Narrativa de terror',
+        date: '06/12/2024',
+        tag: 'RELATO SOBRENATURAL'
+    } ,
+    
+    
+    {
+        title: 'Reino dos gritos',
+        content: 'O Reino dos gritos (Versão curta)',
+        link: './infantil/o-reino-dos-gritos-VC.html',
+        category: 'Infantil',
+        date: '07/12/2024',
+        tag: 'FANTASIA INFANTIL'
+    } ,
+
+    {
+        title: 'Reino dos gritos',
+        content: 'O Reino dos gritos (Versão longa)',
+        link: './infantil/o-reino-dos-gritos-VL.html',
+        category: 'Infantil',
+        date: '15/12/2024',
+        tag: 'FANTASIA INFANTIL'
+    } ,
+
+    {
+        title: 'Reino dos gritos',
+        content: 'A verdadeira história de o reino dos gritos',
+        link: './infantil/a-verdadeira-historia-de-o-reino-dos-gritos.html',
+        category: 'Infantil',
+        date: '08/12/2024',
+        tag: 'FANTASIA INFANTIL'
+    } ,
+
+    {
+        title: 'A Borboleta e o Pão',
+        content: 'A Borboleta e o Pão',
+        link: './infantil/a-borboleta-e-o-pão.html',
+        category: 'Infantil',
+        date: '09/12/2024',
+        tag: 'FAMÍLIA'
+    } ,
+
+    {
+        title: 'Mundo da catinga',
+        content: 'Mundo da catinga',
+        link: './infantil/mundo-da-catinga.html',
+        category: 'Infantil',
+        date: '10/12/2024',
+        tag: 'FANTASIA INFANTIL'
+    } ,
+
+    {
+        title: 'Sofia e o poder das palavras',
+        content: 'Sofia e o poder das palavras',
+        link: './infantil/sofia-e-o-poder-das-palavras.html',
+        category: 'Infantil',
+        date: '10/12/2024',
+        tag: 'FANTASIA INFANTIL'
+    } ,
+
+    {
+        title: 'Anjo da guarda',
+        content: 'Anjo da guarda',
+        link: './infantil/anjo-da-guarda.html',
+        category: 'Infantil',
+        date: '11/12/2024',
+        tag: 'FANTASIA INFANTIL'
+    } ,
+
+    {
+        title: 'Gatinho Miau',
+        content: 'Gatinho Miau',
+        link: './contos/gatinho-miau.html',
+        category: 'Conto',
+        date: '15/12/2024',
+        tag: 'GATOS'
+    } ,
+
+    ];
+
+    const noticiasContainer = document.getElementById('noticias');
+    const searchInput = document.getElementById('search-input');
+    const noResultsMessage = document.getElementById('no-results');
+
+    // Função para renderizar as notícias no layout
+    function renderNoticias(filtradas) {
+        noticiasContainer.innerHTML = ''; // Limpa os resultados antes de renderizar
+        if (filtradas.length === 0) {
+            noResultsMessage.style.display = 'block'; // Exibe a mensagem de "Nenhum resultado"
+        } else {
+            noResultsMessage.style.display = 'none'; // Esconde a mensagem de "Nenhum resultado"
+            filtradas.forEach(noticia => {
+                const noticiaElement = document.createElement('div');
+                noticiaElement.classList.add('noticia-container');
+                noticiaElement.innerHTML = `
+                    <div class="tag">${noticia.tag}</div><br><br>
+                    <a href="${noticia.link}" target="_blank">
+                        <p>${noticia.content}</p>
+                    </a>
+                    <div class="noticia-footer">
+                        <div class="categoria">${noticia.category}</div>
+                        <div class="tempo">${noticia.date}</div>
+                    </div>
+                `;
+                noticiasContainer.appendChild(noticiaElement);
+            });
+        }
+    }
+
+    // Função para filtrar as notícias com base na pesquisa
+    function filtrarNoticias() {
+        const query = searchInput.value.toLowerCase();
+        if (query === '') {
+            noticiasContainer.innerHTML = ''; // Limpa os resultados se o campo estiver vazio
+            noResultsMessage.style.display = 'none'; // Esconde a mensagem de "Nenhum resultado"
+        } else {
+            const filtradas = noticias.filter(noticia =>
+                noticia.title.toLowerCase().includes(query) || 
+                noticia.content.toLowerCase().includes(query)
+            );
+            renderNoticias(filtradas); // Exibe as notícias que correspondem à pesquisa
+        }
+    }
+
+    // Escuta mudanças no input de pesquisa
+    searchInput.addEventListener('input', filtrarNoticias);
+
+    //
+
+
+
+
+
+
+    // Função para renderizar as notícias filtradas
+function renderNoticias(filtradas) {
+    noticiasContainer.innerHTML = ''; // Limpa os resultados antes de renderizar
+    if (filtradas.length === 0) {
+        noResultsMessage.style.display = 'block'; // Exibe a mensagem de "Nenhum resultado"
+    } else {
+        noResultsMessage.style.display = 'none'; // Esconde a mensagem de "Nenhum resultado"
+        filtradas.forEach(noticia => {
+            const noticiaElement = document.createElement('div');
+            noticiaElement.classList.add('noticia-container');
+            noticiaElement.innerHTML = `
+                <div class="tag">${noticia.tag}</div> <br> <br>
+                <a id="noticia-container" href="${noticia.link}" target="_blank">
+                    <p>${noticia.content}</p>
+                </a>
+                <div class="noticia-footer">
+                    <div class="categoria">${noticia.category}</div>
+                    <div class="tempo">${noticia.date}</div>
+                </div>
+            `;
+            noticiasContainer.appendChild(noticiaElement);
+        });
+    }
+}
+
+// Função para filtrar notícias com base no conteúdo da div `.noticia-container`
+function filtrarNoticias() {
+    const query = searchInput.value.toLowerCase();
+
+    if (query === '') {
+        // Mostra todas as notícias se a pesquisa estiver vazia
+        renderNoticias(noticias);
+    } else {
+        // Filtra as notícias que contêm a pesquisa em qualquer campo
+        const filtradas = noticias.filter(noticia => {
+            const allContent = `
+                ${noticia.tag} 
+                ${noticia.content} 
+                ${noticia.category} 
+                ${noticia.date}
+            `.toLowerCase();
+            return allContent.includes(query);
+        });
+
+        renderNoticias(filtradas); // Renderiza os resultados filtrados
+    }
+}
+
+// Escuta mudanças no input de pesquisa
+searchInput.addEventListener('input', filtrarNoticias);
+
+
+  </script>
+
+</body>
+</html>
